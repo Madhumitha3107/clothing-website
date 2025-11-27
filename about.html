@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NJ4PBX4K');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Clothify</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJ4PBX4K"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
 <header>
     <nav class="navbar">
         <div class="logo">CLOTHIFY</div>
@@ -47,9 +37,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 </section>
 
+<section class="contact-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Your Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Your Email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
 <footer>
     <p>© 2025 Clothify Ecommerce | All Rights Reserved</p>
 </footer>
+
+<script>
+    // Simple form submission handler
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you! Your message has been received.');
+        form.reset();
+    });
+</script>
 
 </body>
 </html>
