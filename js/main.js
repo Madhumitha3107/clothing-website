@@ -1,32 +1,43 @@
 // Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Add to cart function
+// Add to Cart Function
 function addToCart(name, price) {
     cart.push({ name, price });
-
-    alert(name + " added to cart!");
-
     localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Item added to cart!");
 }
 
-// Display cart items on cart page
-if (window.location.pathname.includes("cart.html")) {
-    const container = document.getElementById("cart-items");
-    const totalElement = document.getElementById("total");
+// Display Cart Items
+function displayCart() {
+    const cartContainer = document.getElementById("cart-container");
+    const totalAmountElement = document.getElementById("totalAmount");
 
+    if (!cartContainer) return;
+
+    cartContainer.innerHTML = "";
     let total = 0;
 
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
         total += item.price;
-
-        const div = document.createElement("div");
-        div.classList.add("cart-item");
-        div.innerHTML = `
-            <p>${item.name} - ₹${item.price}</p>
+        cartContainer.innerHTML += `
+            <div class="cart-item">
+                <p><strong>${item.name}</strong></p>
+                <p>₹${item.price}</p>
+                <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+            </div>
         `;
-        container.appendChild(div);
     });
 
-    totalElement.textContent = "Total: ₹" + total;
+    totalAmountElement.innerText = total;
 }
+
+// Remove Item from Cart
+function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+
+// Display cart when on cart page
+displayCart();
