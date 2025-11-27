@@ -68,15 +68,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>© 2025 Clothify Ecommerce | All Rights Reserved</p>
 </footer>
 
+
 <script>
-    // Simple form submission handler
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Thank you! Your message has been received.');
-        form.reset();
+        // Optionally, you can store the form data in localStorage or send to a server
+        window.location.href = "thankyou.html";
     });
 </script>
+
 
 </body>
 </html>
