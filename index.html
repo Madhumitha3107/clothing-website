@@ -1,1 +1,93 @@
-<!DOCTYPE html><html><head><title>Home</title><link rel="stylesheet" href="css/styles.css"></head><body><h1>Welcome to Clothing Store</h1><a href='products.html'>Products</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store | Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">CLOTHIFY</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Trendy & Comfortable Clothing</h1>
+            <p>Explore our new collection with exclusive offers!</p>
+            <a href="products.html" class="hero-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- CATEGORY SECTION -->
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-container">
+
+            <a href="products.html#shirts" class="category-box">
+                <img src="https://i.imgur.com/8RKXAIV.jpeg" alt="Shirts">
+                <h3>Shirts</h3>
+            </a>
+
+            <a href="products.html#tshirts" class="category-box">
+                <img src="https://i.imgur.com/WQnQ0DI.jpeg" alt="T-Shirts">
+                <h3>T-Shirts</h3>
+            </a>
+
+            <a href="products.html#jeans" class="category-box">
+                <img src="https://i.imgur.com/4xnzOog.jpeg" alt="Jeans">
+                <h3>Jeans</h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="featured">
+        <h2>Featured Products</h2>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="https://i.imgur.com/WRqP0PQ.jpeg" alt="Casual Shirt">
+                <h3>Casual Shirt</h3>
+                <p class="price">₹799</p>
+                <button class="add-cart-btn" onclick="addToCart('Casual Shirt', 799)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.imgur.com/g6tFetF.jpeg" alt="Graphic T-Shirt">
+                <h3>Graphic T-Shirt</h3>
+                <p class="price">₹499</p>
+                <button class="add-cart-btn" onclick="addToCart('Graphic T-Shirt', 499)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.imgur.com/cRdmPtP.jpeg" alt="Blue Denim Jeans">
+                <h3>Blue Denim Jeans</h3>
+                <p class="price">₹1,299</p>
+                <button class="add-cart-btn" onclick="addToCart('Blue Denim Jeans', 1299)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Clothify Ecommerce | All Rights Reserved</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
