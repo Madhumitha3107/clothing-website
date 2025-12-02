@@ -41,3 +41,8 @@ function removeItem(index) {
 
 // Display cart when on cart page
 displayCart();
+function goToPayment() {
+    const total = document.getElementById("totalAmount").innerText;
+    localStorage.setItem("cartTotal", total);
+    window.location.href = "payment.html";
+}
