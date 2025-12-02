@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Clothify</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">CLOTHIFY</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="payment-section">
+    <h2>Complete Your Payment</h2>
+    <p>Total Amount: ₹<span id="payAmount">0</span></p>
+
+    <button id="rzp-button" class="checkout-btn">Pay Now</button>
+</section>
+
+<footer>
+    <p>© 2025 Clothify Ecommerce | All Rights Reserved</p>
+</footer>
+
+<!-- Razorpay Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    // Get total from cart
+    const total = localStorage.getItem("cartTotal") || 0;
+    document.getElementById("payAmount").innerText = total;
+
+    var options = {
+        "key": "rzp_test_1234567890",  // 🔹 Replace with your Razorpay key
+        "amount": total * 100, 
+        "currency": "INR",
+        "name": "Clothify Ecommerce",
+        "description": "Order Payment",
+        "handler": function (response){
+            window.location.href = "success.html?payment_id=" + response.razorpay_payment_id;
+        },
+        "theme": {
+            "color": "#ff4d6d"
+        }
+    };
+    
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+
+</body>
+</html>
