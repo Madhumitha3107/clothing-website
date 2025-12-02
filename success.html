@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful | Clothify</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">CLOTHIFY</div>
+    </nav>
+</header>
+
+<section class="success-section">
+    <h2>🎉 Payment Successful!</h2>
+    <p>Your order has been placed.</p>
+    <p>Payment ID: <span id="paymentId"></span></p>
+    
+    <a href="index.html" class="checkout-btn">Continue Shopping</a>
+</section>
+
+<footer>
+    <p>© 2025 Clothify Ecommerce | All Rights Reserved</p>
+</footer>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById("paymentId").textContent = urlParams.get("payment_id");
+    
+    // GA4 Purchase Event
+    gtag('event', 'purchase', {
+        currency: "INR",
+        value: localStorage.getItem("cartTotal"),
+        transaction_id: urlParams.get("payment_id")
+    });
+
+    // Clear cart
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("cartTotal");
+</script>
+
+</body>
+</html>
